@@ -1,55 +1,49 @@
-Functional Hangman (Python & Clojure)
+# Jogo da Forca Funcional (Python & Clojure)
 
-📖 About The Project
+![Demonstração do Jogo](demo.gif)
 
-This project is an implementation of the classic Hangman game for the terminal, developed using a strictly functional approach in two different languages: Python and Clojure.
+## 📖 Sobre o Projeto
 
-The main goal was to explore and apply fundamental concepts of the functional programming paradigm, such as pure functions, immutability, and the separation of concerns (isolating business logic from I/O side effects).
+Este projeto é uma implementação do clássico **Jogo da Forca** para o terminal, desenvolvido com uma abordagem estritamente funcional em duas linguagens diferentes: Python e Clojure.
 
-✨ Features & Concepts
+O objetivo principal foi explorar e aplicar na prática os conceitos fundamentais da programação funcional, como **funções puras**, **imutabilidade** e a **separação de responsabilidades** (isolando a lógica de negócio dos efeitos colaterais de entrada e saída).
 
-    Pure Game Logic: All game rules (processing a guess, checking for win/loss conditions, etc.) are contained within pure functions with no side effects.
+## ✨ Funcionalidades & Conceitos
 
-    Immutable State: The game's state is never modified. With every turn, a new state is generated and passed to the next iteration of the main loop.
+* **Lógica de Jogo Pura:** Todas as regras do jogo (processar um palpite, verificar vitória/derrota, etc.) são contidas em funções puras, sem efeitos colaterais.
+* **Estado Imutável:** O estado do jogo nunca é modificado. A cada jogada, um novo estado é gerado e passado para a próxima iteração do loop principal.
+* **Separação de I/O:** As funções que interagem com o terminal (imprimindo na tela e lendo a entrada do usuário) são completamente separadas da lógica do jogo.
+* **Implementação Dupla:** O mesmo design foi aplicado em duas linguagens para comparar como os princípios funcionais se manifestam em um ambiente multiparadigma (Python) e em um ambiente funcional por natureza (Clojure).
 
-    I/O Separation: Functions that interact with the terminal (printing to the screen and reading user input) are completely separate from the core game logic.
+## 🚀 Como Executar
 
-    Dual Implementation: The same design was applied in two languages to compare how functional principles manifest in a multi-paradigm environment (Python) versus a functional-first environment (Clojure).
+Para rodar o projeto, clone este repositório e siga os passos abaixo para a versão desejada.
 
-🚀 How to Run
+### Versão em Python
 
-To run this project, clone the repository and follow the steps below for the desired version.
-
-Python Version
-
-    Navigate to the python directory:
-    Bash
-
-cd python
-
-Run the game using the following command:
-Bash
-
+1.  Navegue até a pasta `python`:
+    ```sh
+    cd python
+    ```
+2.  Execute o jogo com o seguinte comando:
+    ```sh
     python3 main.py
+    ```
 
-Clojure Version
+### Versão em Clojure
 
-    Make sure you have Babashka installed on your system.
-
-    Navigate to the clojure directory:
-    Bash
-
-cd clojure
-
-Run the game using the following command:
-Bash
-
+1.  Certifique-se de ter o [Babashka](https://babashka.org/) instalado em seu sistema.
+2.  Navegue até a pasta `clojure`:
+    ```sh
+    cd clojure
+    ```
+3.  Execute o jogo com o seguinte comando:
+    ```sh
     bb hangman.clj
+    ```
 
-🛠️ Technologies Used
+## 🛠️ Tecnologias Utilizadas
 
-    Python 3
-
-    Clojure
-
-    Babashka (as a Clojure script interpreter)
+* **Python 3**
+* **Clojure**
+* **Babashka** (como interpretador de scripts Clojure)
