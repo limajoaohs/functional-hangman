@@ -1,12 +1,10 @@
 (require '[clojure.string :as str])
 
-(def word-list [
-    "COMPUTER", "PROGRAMMING", "ALGORITHM", "LIBRARY", "PARADIGM",
-    "LANGUAGE", "VARIABLE", "CONSTANT", "FRAMEWORK", "DEVELOPER",
-    "ELEPHANT", "GIRAFFE", "HIPPOPOTAMUS", "DOG", "CAT", "BUTTERFLY",
-    "PINEAPPLE", "WATERMELON", "STRAWBERRY", "ORANGE", "BANANA",
-    "UNIVERSITY", "KNOWLEDGE", "STUDENT", "PROFESSOR", "DISCIPLINE"
-])
+(def word-list ["COMPUTADOR", "PROGRAMACAO", "ALGORITMO", "BIBLIOTECA", "PARADIGMA",
+                "LINGUAGEM", "VARIAVEL", "CONSTANTE", "FRAMEWORK", "DESENVOLVEDOR",
+                "ELEFANTE", "GIRAFA", "HIPOPOTAMO", "CACHORRO", "GATO", "PASSARINHO",
+                "BORBOLETA", "ABACAXI", "MELANCIA", "MORANGO", "LARANJA", "BANANA",
+                "UNIVERSIDADE", "CONHECIMENTO", "ESTUDANTE", "PROFESSOR", "DISCIPLINA"])
 
 (defn select-word []
   (rand-nth word-list))
@@ -41,19 +39,19 @@
     :else :ongoing))
 
 (defn print-game-state [game-state]
-  (println "\nWord:" (display-word game-state))
-  (println "Lives left:" (:lives game-state))
-  (println "Guesses so far:" (str/join ", " (sort (:guesses game-state)))))
+  (println "\nPalavra:" (display-word game-state))
+  (println "Vidas restantes:" (:lives game-state))
+  (println "Palpites até agora:" (str/join ", " (sort (:guesses game-state)))))
 
 (defn get-user-input []
-  (print "Enter your guess (a single letter): ")
+  (print "Digite seu palpite (uma única letra): ")
   (flush)
   (read-line))
 
 (defn print-game-over-message [status word]
   (if (= status :win)
-    (println "\n🎉 Congratulations! You guessed the word:" word)
-    (println "\n😥 Game Over! The word was:" word)))
+    (println "\n🎉 Parabéns! Você acertou a palavra:" word)
+    (println "\n😥 Fim de Jogo! A palavra era:" word)))
 
 (defn game-loop [current-state]
   (let [status (game-status current-state)]
@@ -66,7 +64,7 @@
       (print-game-over-message status (:word current-state)))))
 
 (defn -main [& args]
-  (println "--- Welcome to Functional Hangman (Clojure)! ---")
+  (println "--- Bem-vindo ao Jogo da Forca Funcional (Clojure)! ---")
   (-> (select-word)
       (create-initial-state)
       (game-loop)))

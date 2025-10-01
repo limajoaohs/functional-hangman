@@ -1,32 +1,11 @@
 import random
 
 WORD_LIST = [
-    "COMPUTER",
-    "PROGRAMMING",
-    "ALGORITHM",
-    "LIBRARY",
-    "PARADIGM",
-    "LANGUAGE",
-    "VARIABLE",
-    "CONSTANT",
-    "FRAMEWORK",
-    "DEVELOPER",
-    "ELEPHANT",
-    "GIRAFFE",
-    "HIPPOPOTAMUS",
-    "DOG",
-    "CAT",
-    "BUTTERFLY",
-    "PINEAPPLE",
-    "WATERMELON",
-    "STRAWBERRY",
-    "ORANGE",
-    "BANANA",
-    "UNIVERSITY",
-    "KNOWLEDGE",
-    "STUDENT",
-    "PROFESSOR",
-    "DISCIPLINE"
+    "COMPUTADOR", "PROGRAMACAO", "ALGORITMO", "BIBLIOTECA", "PARADIGMA",
+    "LINGUAGEM", "VARIAVEL", "CONSTANTE", "FRAMEWORK", "DESENVOLVEDOR",
+    "ELEFANTE", "GIRAFA", "HIPOPOTAMO", "CACHORRO", "GATO", "PASSARINHO",
+    "BORBOLETA", "ABACAXI", "MELANCIA", "MORANGO", "LARANJA", "BANANA",
+    "UNIVERSIDADE", "CONHECIMENTO", "ESTUDANTE", "PROFESSOR", "DISCIPLINA"
 ]
 
 def select_word(seed=None):
@@ -48,12 +27,9 @@ def get_display_word(game_state):
 
 def process_guess(game_state, guess):
     guess = guess.upper()
-    
     if len(guess) != 1 or not guess.isalpha() or guess in game_state["guesses"]:
         return game_state
-
     new_guesses = game_state["guesses"] | {guess}
-    
     if guess in game_state["word"]:
         return {**game_state, "guesses": new_guesses}
     else:
@@ -63,11 +39,8 @@ def get_game_status(game_state):
     word = game_state["word"]
     guesses = game_state["guesses"]
     lives = game_state["lives"]
-    
     if lives <= 0:
         return "loss"
-    
     if all(char in guesses for char in word):
         return "win"
-        
     return "ongoing"
